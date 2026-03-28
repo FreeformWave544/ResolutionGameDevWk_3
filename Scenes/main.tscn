@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://mc6lyua65erf" path="res://Scenes/collectable.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://we65g4i1sp7l" path="res://Scenes/ui.tscn" id="5_21xkr"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kry3j"]
+blend_mode = 1
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1nx"]
 texture = ExtResource("1_jjgbg")
 0:0/0 = 0
@@ -144,6 +147,49 @@ sources/0 = SubResource("TileSetAtlasSource_bo1nx")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(20000, 20)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kry3j"]
+noise_type = 2
+cellular_distance_function = 2
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_21xkr"]
+width = 1152
+height = 648
+noise = SubResource("FastNoiseLite_kry3j")
+seamless = true
+invert = true
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_v0iea"]
+colors = PackedColorArray(0.44705883, 0.57254905, 0.4627451, 1, 0.40784314, 0.7176471, 0.65882355, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cvnsp"]
+noise_type = 2
+frequency = 1.0
+fractal_type = 3
+fractal_octaves = 1
+fractal_lacunarity = -5.45
+fractal_gain = -4.14
+fractal_ping_pong_strength = 15.495
+cellular_distance_function = 3
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_amplitude = 35.525
+domain_warp_frequency = 0.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_octaves = 10
+domain_warp_fractal_lacunarity = 8.6
+domain_warp_fractal_gain = 3.36
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kry3j"]
+width = 1152
+height = 648
+noise = SubResource("FastNoiseLite_cvnsp")
+color_ramp = SubResource("Gradient_v0iea")
+in_3d_space = true
+
 [node name="Main" type="Node2D" unique_id=959890974]
 script = ExtResource("1_kry3j")
 
@@ -151,6 +197,8 @@ script = ExtResource("1_kry3j")
 scale = Vector2(1.5, 1.5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=111962981]
+modulate = Color(0, 1, 1, 1)
+material = SubResource("CanvasItemMaterial_kry3j")
 position = Vector2(-400, 0)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAABAAQAAAABAAcAAAACAAQAAAACAAcAAAADAAQAAAADAAcAAAAEAAQAAAABAAcAAAAFAAQAAAACAAcAAAAGAAQAAAADAAcAAAAAAAQAAAAAAAcAAAAAAAMAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAP//AAAAAAYAAAAAAP7/AAAAAAAAAAABAP7/AAAHAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAQAAAAJAAYAAAAAAAQAAAAJAAcAAAAAAAQAAAAJAAgAAAAAAAQAAAAJAAkAAAAAAAQAAAAJAAoAAAAAAAcAAAAKAAQAAAAHAAAAAAAKAAUAAAAHAAMAAAAKAAYAAAAHAAMAAAAKAAcAAAAHAAMAAAAKAAgAAAAHAAMAAAAKAAkAAAAHAAMAAAAKAAoAAAAHAAcAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAQAAAAOAAYAAAAAAAQAAAAOAAcAAAAAAAQAAAAOAAgAAAAAAAQAAAAOAAkAAAAAAAQAAAAOAAoAAAAAAAcAAAAPAAQAAAAHAAAAAAAPAAUAAAAHAAMAAAAPAAYAAAAHAAMAAAAPAAcAAAAHAAMAAAAPAAgAAAAHAAMAAAAPAAkAAAAHAAMAAAAPAAoAAAAHAAcAAAASAAQAAAAAAAAAAAASAAUAAAAAAAQAAAASAAYAAAAAAAQAAAASAAcAAAAAAAQAAAASAAgAAAAAAAQAAAASAAkAAAAAAAQAAAASAAoAAAAAAAcAAAATAAQAAAAHAAAAAAATAAUAAAAHAAMAAAATAAYAAAAHAAMAAAATAAcAAAAHAAMAAAATAAgAAAAHAAMAAAATAAkAAAAHAAMAAAATAAoAAAAHAAcAAAAWAAQAAAAAAAAAAAAWAAUAAAAAAAQAAAAWAAYAAAAAAAQAAAAWAAcAAAAAAAQAAAAWAAgAAAAAAAQAAAAWAAkAAAAAAAQAAAAWAAoAAAAAAAcAAAAXAAQAAAAHAAAAAAAXAAUAAAAHAAMAAAAXAAYAAAAHAAMAAAAXAAcAAAAHAAMAAAAXAAgAAAAHAAMAAAAXAAkAAAAHAAMAAAAXAAoAAAAHAAcAAAAaAAIAAAAAAAAAAAAaAAMAAAAAAAQAAAAaAAQAAAAAAAQAAAAaAAUAAAAAAAQAAAAaAAYAAAAAAAQAAAAaAAcAAAAAAAQAAAAaAAgAAAAAAAcAAAAbAAIAAAAHAAAAAAAbAAMAAAAHAAMAAAAbAAQAAAAHAAMAAAAbAAUAAAAHAAMAAAAbAAYAAAAHAAMAAAAbAAcAAAAHAAMAAAAbAAgAAAAHAAcAAAAeAAAAAAAAAAAAAAAeAAEAAAAAAAQAAAAeAAIAAAAAAAQAAAAeAAMAAAAAAAQAAAAeAAQAAAAAAAQAAAAeAAUAAAAAAAQAAAAeAAYAAAAAAAcAAAAfAAAAAAAHAAAAAAAfAAEAAAAHAAMAAAAfAAIAAAAHAAMAAAAfAAMAAAAHAAMAAAAfAAQAAAAHAAMAAAAfAAUAAAAHAAMAAAAfAAYAAAAHAAcAAAATAP3/AAAAAAAAAAATAP7/AAAAAAcAAAAbAP3/AAAHAAAAAAAbAP7/AAAHAAcAAAAUAP3/AAABAAAAAAAVAP3/AAABAAAAAAAWAP3/AAABAAAAAAAXAP3/AAABAAAAAAAYAP3/AAABAAAAAAAZAP3/AAABAAAAAAAaAP3/AAABAAAAAAAaAP7/AAAGAAcAAAAZAP7/AAAGAAcAAAAYAP7/AAAGAAcAAAAXAP7/AAAGAAcAAAAWAP7/AAAGAAcAAAAVAP7/AAAGAAcAAAAUAP7/AAAGAAcAAAAgAP7/AAAAAAAAAAAhAP//AAAHAAcAAAAhAP7/AAAHAAAAAAAgAP//AAAAAAcAAAABAP//AAAHAAcAAAAHAAQAAAAGAAcAAAAIAAQAAAAHAAcAAAAIAAMAAAAHAAAAAAAHAAMAAAAAAAAAAAA=")
@@ -175,6 +223,21 @@ shape = SubResource("RectangleShape2D_8gbba")
 
 [node name="UI" parent="." unique_id=1648613119 instance=ExtResource("5_21xkr")]
 
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1127850020]
+z_index = -5
+repeat_size = Vector2(1152, 648)
+autoscroll = Vector2(50, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1135981648]
+texture = SubResource("NoiseTexture2D_21xkr")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D" unique_id=359745939]
+modulate = Color(1, 1, 1, 0.7490196)
+texture = SubResource("NoiseTexture2D_kry3j")
+centered = false
+
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="visibility_changed" from="UI/Win" to="UI" method="_on_win_visibility_changed"]
 
 [editable path="UI"]

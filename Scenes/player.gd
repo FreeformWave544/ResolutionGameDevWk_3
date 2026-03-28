@@ -19,5 +19,5 @@ func _physics_process(delta: float) -> void:
 
 func _update_UI() -> void:
 	$"../UI/VBoxContainer/Score".text = "Score: " + str(score)
-	if score >= len($"../CollectableContainer".get_children()):
-		$UI/Win.show()
+	if score > len($"../CollectableContainer".get_children()):
+		$"../UI/Win".show()
