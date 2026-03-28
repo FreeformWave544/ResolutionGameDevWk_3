@@ -5,8 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7u77a"]
 
 [sub_resource type="Gradient" id="Gradient_7u77a"]
-offsets = PackedFloat32Array(0.52409637, 0.6686747, 0.7108434)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0.5372549, 0.10980392, 1, 1, 0.5372549, 0)
+offsets = PackedFloat32Array(0, 0.37349397, 0.52409637, 0.6686747, 0.7108434)
+colors = PackedColorArray(1.7544361, 2.341507, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0.5372549, 0.10980392, 1, 1, 0.5372549, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_jjgbg"]
 gradient = SubResource("Gradient_7u77a")
@@ -14,6 +14,13 @@ width = 32
 height = 32
 fill = 2
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v0iea"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cvnsp"]
+width = 20
+height = 20
+noise = SubResource("FastNoiseLite_v0iea")
 
 [node name="Player" type="CharacterBody2D" unique_id=604449212]
 script = ExtResource("1_v0iea")
@@ -30,3 +37,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 6.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1945105686]
+modulate = Color(1, 1, 1, 0.49803922)
+texture = SubResource("NoiseTexture2D_cvnsp")
