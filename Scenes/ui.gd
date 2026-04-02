@@ -18,7 +18,6 @@ func _on_game_over_visibility_changed() -> void:
 
 func _on_win_visibility_changed() -> void:
 	$Sprite2D.visible = $Win.visible
-	print("WIN. ", $Sprite2D.visible)
 	if not $Win.visible: return
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true

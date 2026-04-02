@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bniaqwsow0x4d" path="res://Scenes/collectable.gd" id="1_3rsma"]
 [ext_resource type="Material" uid="uid://08o1s4rs8fs5" path="res://particles.tres" id="2_licok"]
+[ext_resource type="AudioStream" uid="uid://dkwjpxncyjr6y" path="res://audio/pickupCoin.wav" id="3_me652"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qf81a"]
 radius = 30.066593
@@ -56,5 +57,10 @@ randomness = 1.0
 trail_enabled = true
 trail_lifetime = 10.0
 process_material = ExtResource("2_licok")
+
+[node name="Pickup" type="AudioStreamPlayer" parent="." unique_id=805127386]
+stream = ExtResource("3_me652")
+pitch_scale = 0.3
+max_polyphony = 3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -280,7 +280,6 @@ position = Vector2(932, -307)
 [node name="Runner" parent="CollectableContainer" unique_id=949520052 instance=ExtResource("5_tnuy3")]
 position = Vector2(1070, -307)
 StartPos = Vector2(1070, -307)
-speed = 100.0
 
 [node name="Deathzone" type="Area2D" parent="." unique_id=938917003]
 

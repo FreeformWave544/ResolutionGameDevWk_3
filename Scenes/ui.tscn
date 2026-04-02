@@ -142,6 +142,7 @@ layout_mode = 2
 text = "Main Menu"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2106226492]
+visible = false
 z_index = 1
 position = Vector2(576, 324)
 skew = 0.05235982

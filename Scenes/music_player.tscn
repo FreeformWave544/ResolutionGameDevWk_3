@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c37t2j0e4cxo3"]
+
+[ext_resource type="AudioStream" uid="uid://bh32dtoi0eq4f" path="res://audio/Second game.mp3" id="1_ous86"]
+
+[node name="MusicPlayer" type="Node" unique_id=1196557579]
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=647287443]
+stream = ExtResource("1_ous86")
+pitch_scale = 0.2
+autoplay = true
+mix_target = 1
+bus = &"Music"

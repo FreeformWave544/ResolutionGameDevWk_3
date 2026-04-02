@@ -1,7 +1,7 @@
 [gd_resource type="ParticleProcessMaterial" format=3 uid="uid://08o1s4rs8fs5"]
 
 [sub_resource type="Curve" id="Curve_v8770"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.47972977, 0.48314613), 2.3630996, 2.3630996, 0, 0, Vector2(0.7702703, 1), 0.75099677, 0.75099677, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.47972977, 0.48314613), 2.3630996, 2.3630996, 0, 0, Vector2(0.6418919, 0.6292135), -0.74393845, -0.74393845, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_qpclq"]
