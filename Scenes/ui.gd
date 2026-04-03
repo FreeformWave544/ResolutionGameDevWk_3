@@ -3,7 +3,7 @@ extends CanvasLayer
 @export var nextLevel: PackedScene
 
 func _ready() -> void:
-	if not nextLevel: nextLevel = load("res://Scenes/Levels/level" + str(int(str(get_parent().get_scene_file_path()).split(".")[0].split("level")[1]) + 1) + ".tscn")
+	if not nextLevel: nextLevel = load(str(get_parent().get_scene_file_path()).rstrip("0123456789.tscn") + str(int(str(get_parent().get_scene_file_path()).get_file().trim_suffix(".tscn").lstrip("abcdefghijklmnopqrstuvwxyz")) + 1) + ".tscn")
 
 var forwards := true
 func _physics_process(_delta: float) -> void:
